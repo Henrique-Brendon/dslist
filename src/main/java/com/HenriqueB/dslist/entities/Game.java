@@ -8,9 +8,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-@Entity
-@Table(name = "tb-game")
 
+@Entity
+@Table(name = "tb_game")
 public class Game {
 	
 	@Id
@@ -21,25 +21,32 @@ public class Game {
 	@Column(name = "game_year")
 	private Integer year;
 	private String genre;
-	private String plataforms;
+	private String platforms;
+	private Double score;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
-	private String longDescripption;
+	
+	@Column(columnDefinition = "TEXT")
+	private String longDescription;
+	
 	
 	public Game() {
 		
 	}
 
-	public Game(Long id, String title, Integer year, String genre, String plataforms, String imgUrl,
-			String shortDescription, String longDescripption) {
+	public Game(Long id, String title, Integer year, String genre, String platforms, Double score, String imgUrl,
+			String shortDescription, String longDescription) {
 		this.id = id;
 		this.title = title;
 		this.year = year;
 		this.genre = genre;
-		this.plataforms = plataforms;
+		this.platforms = platforms;
+		this.score = score;
 		this.imgUrl = imgUrl;
-		this.shortDescription = shortDescription;
-		this.longDescripption = longDescripption;
+		this.shortDescription = shortDescription;		
+		this.longDescription = longDescription;
 	}
 
 	public Long getId() {
@@ -74,12 +81,20 @@ public class Game {
 		this.genre = genre;
 	}
 
-	public String getPlataforms() {
-		return plataforms;
+	public String getPlatform() {
+		return platforms;
 	}
 
-	public void setPlataforms(String plataforms) {
-		this.plataforms = plataforms;
+	public void setPlatform(String platform) {
+		this.platforms = platform;
+	}
+	
+	public Double getScore() {
+		return score;
+	}
+
+	public void setScore(Double score) {
+		this.score = score;
 	}
 
 	public String getImgUrl() {
@@ -94,16 +109,16 @@ public class Game {
 		return shortDescription;
 	}
 
-	public void setShortDescription(String shortDescription) {
-		this.shortDescription = shortDescription;
+	public void setShortDescription(String shorDescription) {
+		this.shortDescription = shorDescription;
 	}
 
-	public String getLongDescripption() {
-		return longDescripption;
+	public String getLongDescription() {
+		return longDescription;
 	}
 
-	public void setLongDescripption(String longDescripption) {
-		this.longDescripption = longDescripption;
+	public void setLongDescription(String longDescription) {
+		this.longDescription = longDescription;
 	}
 
 	@Override
@@ -125,6 +140,4 @@ public class Game {
 	
 	
 	
-	
-		
 }
